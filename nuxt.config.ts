@@ -18,6 +18,11 @@ export default defineNuxtConfig({
   // Nuxt plugins
   plugins: ["~/plugins/session.server.ts"],
 
+  // Environment variables
+  runtimeConfig: {
+    API_ENDPOINT: process.env.API_ENDPOINT,
+  },
+
   // Nuxt Icons
   icon: {
     customCollections: [
