@@ -23,14 +23,11 @@ export const useAuth = () => {
   async function login(body: UserLogin) {
     try {
       const headers = useRequestHeaders(["cookie"]);
-      const res = await $fetch<User>(
-        "http://localhost:8080/api/v1/auth/login",
-        {
-          method: "POST",
-          body,
-          headers,
-        }
-      );
+      const res = await $fetch<User>("/api/auth/login", {
+        method: "POST",
+        body,
+        headers,
+      });
 
       return await _setState(res);
     } catch (e: any) {
@@ -40,7 +37,7 @@ export const useAuth = () => {
 
   async function register(body: UserRegister) {
     try {
-      return await $fetch<User>("http://localhost:8080/api/v1/auth/register", {
+      return await $fetch<User>("/api/auth/register", {
         method: "POST",
         body,
       });
@@ -52,14 +49,13 @@ export const useAuth = () => {
   async function logout() {
     try {
       const headers = useRequestHeaders(["cookie"]);
-      await $fetch("http://localhost:8080/api/v1/auth/logout", {
+      await $fetch("/api/auth/logout", {
         method: "POST",
         headers,
       });
 
       return await _clearState();
     } catch (e: any) {
-      console.log("logout/error", e);
       error.value = buildError(e);
     }
   }
@@ -79,7 +75,7 @@ export const useAuth = () => {
   async function getUser() {
     try {
       const headers = useRequestHeaders(["cookie"]);
-      return await $fetch<User>("http://localhost:8080/api/v1/auth/me", {
+      return await $fetch<User>("/api/auth/me", {
         credentials: "include",
         headers,
       });
