@@ -13,7 +13,25 @@ export default defineNuxtConfig({
   },
 
   // Style files
-  css: ["~/assets/css/global.css"],
+  css: ["~/assets/css/global.css", "~/assets/css/main.css"],
 
-  modules: ["@nuxt/icon"],
+  // Nuxt plugins
+  plugins: ["~/plugins/session.server.ts"],
+
+  // Environment variables
+  runtimeConfig: {
+    API_ENDPOINT: process.env.API_ENDPOINT,
+  },
+
+  // Nuxt Icons
+  icon: {
+    customCollections: [
+      {
+        prefix: "oeplan",
+        dir: "./assets/icons",
+      },
+    ],
+  },
+
+  modules: ["@nuxt/icon", "@nuxt/ui"],
 });
