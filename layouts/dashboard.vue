@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <DashboardHeader />
+    <Header />
     <main>
       <div class="dashboard-container">
         <div class="dashboard-content">
@@ -15,7 +15,6 @@
 main {
   height: 100vh;
   width: 100%;
-  background-color: var(--color-surface);
   margin: 0;
   padding: 0;
 }
@@ -33,10 +32,9 @@ main {
   height: 100%;
   width: 100%;
   max-width: var(--max-width);
-  background-color: white;
   border-radius: var(--border-radius-md);
   margin: 0 auto;
-  padding: var(--width-padding);
+  padding: 0 var(--screen-min-width-padding);
   padding-top: calc(var(--header-height) + 1rem);
   display: flex;
   justify-content: center;

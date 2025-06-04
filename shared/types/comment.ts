@@ -1,6 +1,6 @@
 import type { SimpleUser } from "./auth/simple-user";
 
-export interface CommentModel {
+export interface Comment {
   id: number;
   uuid: string;
   task_uuid: string;

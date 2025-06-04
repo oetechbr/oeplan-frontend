@@ -1,2 +1,48 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme static {
+  --font-sans: "Public Sans", sans-serif;
+
+  --transition-fast: 0.15s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+
+  --header-height: 4rem;
+  --top-page-padding: 4rem;
+  --page-padding: var(--top-page-padding) 0;
+  --max-width: 1200px;
+  --screen-min-width-padding: 2rem;
+
+  --color-primary: oklch(74.632% 0.10776 181.34);
+  --color-primary-50: oklch(94.111% 0.02774 185.56);
+  --color-primary-100: oklch(91.659% 0.03709 186.05);
+  --color-primary-200: oklch(87.181% 0.05858 184);
+  --color-primary-300: oklch(82.925% 0.07744 183.36);
+  --color-primary-400: oklch(78.524% 0.09417 182.47);
+  --color-primary-500: oklch(74.632% 0.10776 181.34);
+  --color-primary-600: oklch(64.995% 0.10032 180.52);
+  --color-primary-700: oklch(52.403% 0.07953 180.29);
+  --color-primary-800: oklch(39.039% 0.05663 181.41);
+  --color-primary-900: oklch(24.372% 0.03113 181.31);
+  --color-primary-950: oklch(16.094% 0.01793 182.05);
+}
+
+.oe-ring-primary {
+  @apply rounded-lg font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-2 ring ring-inset ring-primary/50 text-primary hover:bg-primary/10 disabled:bg-transparent aria-disabled:bg-transparent dark:disabled:bg-transparent dark:aria-disabled:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+}
+
+.dark {
+  --color-neutral: oklch(18.22% 0 none);
+  --color-neutral-50: oklch(53.824% 0 none);
+  --color-neutral-100: oklch(50.323% 0 none);
+  --color-neutral-200: oklch(42.761% 0 none);
+  --color-neutral-300: oklch(35.232% 0 none);
+  --color-neutral-400: oklch(26.862% 0 none);
+  --color-neutral-500: oklch(18.22% 0 none);
+  --color-neutral-600: oklch(0% 0 none);
+  --color-neutral-700: oklch(0% 0 none);
+  --color-neutral-800: oklch(0% 0 none);
+  --color-neutral-900: oklch(0% 0 none);
+  --color-neutral-950: oklch(0% 0 none);
+}

@@ -4,7 +4,6 @@ import type { Group } from '~/shared/types/group';
 const { state } = useAuth();
 
 definePageMeta({
-  middleware: ['director-only'],
   layout: 'dashboard'
 })
 

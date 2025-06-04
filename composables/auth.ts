@@ -1,6 +1,7 @@
 import { FetchError } from "ofetch";
 import type { User } from "~/shared/types/auth/user";
 import type { UserLogin } from "~/shared/types/auth/user-login";
+import type { UserPatch } from "~/shared/types/auth/user-patch";
 import type { UserRegister } from "~/shared/types/auth/user-register";
 
 interface UserState {
@@ -35,10 +36,34 @@ export const useAuth = () => {
     }
   }
 
+  async function validateInvite(token: string) {
+    try {
+      const res = await $fetch<User>("/api/invites/users/validate", {
+        method: "POST",
+        body: { token },
+      });
+
+      return await _setState(res);
+    } catch (e: any) {
+      error.value = buildError(e);
+    }
+  }
+
   async function register(body: UserRegister) {
     try {
       return await $fetch<User>("/api/auth/register", {
         method: "POST",
+        body,
+      });
+    } catch (e: any) {
+      error.value = buildError(e);
+    }
+  }
+
+  async function update(body: UserPatch) {
+    try {
+      return await $fetch<User>("/api/auth/me", {
+        method: "PATCH",
         body,
       });
     } catch (e: any) {
@@ -168,5 +193,15 @@ export const useAuth = () => {
      * It can be used to set up the initial user state.
      */
     initState,
+    /**
+     * Function to validate token and log the user in.
+     *
+     * It can be used to set up the initial user state.
+     */
+    validateInvite,
+    /**
+     * Function to update the user data.
+     */
+    update,
   };
 };

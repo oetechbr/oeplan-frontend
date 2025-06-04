@@ -23,6 +23,20 @@ export default defineNuxtConfig({
     API_ENDPOINT: process.env.API_ENDPOINT,
   },
 
+  // Nuxt App configuration
+  app: {
+    // Set default configuration for <head> on every page
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/favicon.ico",
+        },
+      ],
+    },
+  },
+
   // Nuxt Icons
   icon: {
     customCollections: [
@@ -33,5 +47,11 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ["@nuxt/icon"],
+  // Color mode
+  colorMode: {
+    dataValue: "theme",
+    storageKey: "theme",
+  },
+
+  modules: ["@nuxt/icon", "@nuxt/ui"],
 });

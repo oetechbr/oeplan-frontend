@@ -2,11 +2,11 @@ import { createError, useRuntimeConfig } from "#imports";
 
 export default defineCachedHandler(async (event) => {
   const config = useRuntimeConfig(event);
-  const uuid = getRouterParam(event, "uuid");
+  const taskUuid = getRouterParam(event, "uuid");
   const commentUuid = getRouterParam(event, "commentUuid");
 
   try {
-    return await event.$fetch(`/${uuid}/comments/${commentUuid}`, {
+    return await event.$fetch(`/${taskUuid}/comments/${commentUuid}`, {
       baseURL: config.API_ENDPOINT,
     });
   } catch (e: any) {
